@@ -5,7 +5,7 @@ This extension is made for people who are too lazy or forgetful to rate videos, 
 
 <div style="text-align:center"><img src="assets/social.png"/></div>
 
-## Feature
+## Features
 
 This extension helps you do these things:
 
