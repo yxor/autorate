@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" style="width: 150px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="semantics/semantic.min.css">    
+    <link rel="stylesheet" href="popup.css">   
+    <title>AutoRate</title>
+</head>
+<body style="width: 150px;">
+
+    <div class="ui one column stackable center aligned page grid">
+    <div class="column twelve wide">
+    
+    <div>
+       <img id="power-button">
+    </div>
+    
+    <div>
+        <input type="range" id="video-slider" name="video-slider" value="0"  min="0" max="100"> 
+    </div>
+    </div>
+
+    <div class="column twelve wide left aligned">
+    
+    <div class="ui text container">
+       <span id="percentage-display"></span>
+    </div>
+   
+    <h6 class="ui horizontal divider header">
+    </h6>
+    
+    <div class="ui text container">
+        Always
+        <select name="select-global" class="ui dropdown" id="select-global">
+            <option value="notRate">Not rate</option>
+            <option value="like">Like</option>
+            <option value="dislike">Dislike</option>
+        </select>
+        videos by default.
+    </div>
+
+    <h4 class="ui horizontal divider header">
+    </h4>
+    
+    <div id="channel-specific-rating" class="ui text container">
+        Always
+        <select name="select-creator" class="ui dropdown" id="select-creator">
+            <option value="default">Default</option>
+            <option value="like">Like</option>
+            <option value="dislike">Dislike</option>
+            <option value="notRate">Not rate</option>
+        </select>
+        videos from <span id="creator"></span>.
+    </div>
+    
+</div></div>
+    <script src="popup.js"></script>
+</body>
+</html>

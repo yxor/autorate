@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+
+  "name": "AutoRate - Automate YouTube Videos Rating",
+  "description": "AutoRate is a browser extension that automatically rates YouTube videos for you.",
+  "version": "0.9",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+
+  "content_scripts": [{
+    "matches": ["*://www.youtube.com/*", "*://youtube.com/*"],
+    "js": ["content_scripts/utils.js", "content_scripts/content.js"],
+    "run_at": "document_end",
+    "all_frames": true
+  }],
+
+  "background": {
+    "scripts": ["background_scripts/background.js"],
+    "persistent": false
+  },
+
+  "browser_action": {
+    "default_title": "AutoRate",
+    "default_popup": "popup/popup.html"
+  },
+
+  "icons": {
+    "512": "assets/logo.png"
+  }
+
+}
