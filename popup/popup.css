@@ -22,6 +22,10 @@ body {
     z-index: 1000;
 }
 
+.bold-text {
+    font-weight: 600;
+}
+
 /*background color*/
 body, #content-blocker {
     background: rgb(17,0,0);
@@ -34,7 +38,6 @@ body, #content-blocker {
 #power-button {
     width: 90px;
     height: 90px;
-
     padding: 20px;
     padding-bottom: 0;
 }
@@ -56,7 +59,7 @@ body, #content-blocker {
     align-self: stretch;
     width: 100%;
     height: 0;
-    border-bottom: 1px solid #11111133  ;
+    /*border-bottom: 1px solid #11111133;*/
     margin-bottom: 15px;
     margin-top: 15px;
 }

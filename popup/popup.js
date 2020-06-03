@@ -56,7 +56,7 @@ const getRatingString = (rating) => {
   if(rating == 100)
     return `Rate the video after watching it fully.`;
   
-  return `Rate the video after watching <bold>${rating}%</bold> of it.`;
+  return `Rate the video after watching <span class="bold-text">${rating}%</span> of it.`;
 }
 
 
