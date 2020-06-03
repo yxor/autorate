@@ -1,8 +1,10 @@
 
+let cancelAllCallbacks = false;
 /**
  * This is the main callback, checks if you're on a video page then rates the video depending on multiple settings.
  */
 const rateCallback = async() => {
+
   if(!window.location.href.includes("youtube.com/watch"))
     return;
   
@@ -27,15 +29,16 @@ const rateCallback = async() => {
   // Wait until the percentage of the video is reached.
   await waitUntil(() => {
     const video = document.querySelector("video");
-    if(!video) return false;
-    if(is_rated(likeButton, dislikeButton)) return false;
+
+    if(cancelAllCallbacks || !video || is_rated(likeButton, dislikeButton))
+      throw new Error("Canceled");
 
     const watched = getPlayedTime(video);
     const rateAfter = state.rateAfter;
 
     return watched.percent >= rateAfter;
 
-  }, 500);
+  }, 300);
 
 
   // rate the video
@@ -50,10 +53,22 @@ const rateCallback = async() => {
 
 }
 
+const cancelRateCallbacks = async() => {
+  cancelAllCallbacks = true;
+  await new Promise(resolve => setTimeout(resolve, 400));
+  cancelAllCallbacks = false;
+}
 
 // Exectue the callback everytime a setting is changed.
 browser.storage.onChanged.addListener( async(changes, _) => {
-  await rateCallback();
+  try{
+    await cancelRateCallbacks();
+    await rateCallback();
+  } catch(e){
+    // nothing
+    console.log("canceled");
+  }
+    
 })
 
 const target = document.querySelector('title');
@@ -62,12 +77,24 @@ const config = { attributes: true, childList: true, subtree: true };
 
 // Execute the callback when the title changes.
 const observer = new MutationObserver(async (mutations, observer) => {
-  await rateCallback();
+  try{
+    await cancelRateCallbacks();
+    await rateCallback();
+  } catch(e){
+    // nothing
+    console.log("canceled");
+  }
 });
 
 // Execute the callback when window first loads.
 window.onload = async () => {
-  await rateCallback();
+  try{
+    await cancelRateCallbacks();
+    await rateCallback();
+  } catch(e){
+    // nothing
+    console.log("canceled");
+  }
 };
 
 // Start observing the title changes.
