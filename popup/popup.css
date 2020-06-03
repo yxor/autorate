@@ -25,7 +25,6 @@ body {
 .bold-text {
     font-weight: 600;
 }
-
 /*background color*/
 body, #content-blocker {
     background: rgb(17,0,0);

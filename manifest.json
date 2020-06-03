@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "AutoRate - Automate rating YouTube videos",
-  "description": "AutoRate automates rating the youtube videos you watch.",
+  "name": "AutoRate - Automate Rating YouTube Videos",
+  "description": "AutoRate automates rating the youtube videos you watch. Never bother liking or disliking again.",
   "version": "0.9",
   "permissions": [
     "activeTab",
