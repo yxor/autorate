@@ -1,15 +1,4 @@
 
-// Addon icons.
-const iconsOn = {
-    256: "../assets/on256.png",
-    128: "../assets/on128.png"
-  }
-  
-  const iconsOff = {
-    256: "../assets/off256.png",
-    128: "../assets/off128.png"
-  }
-
 
 /**
  * Can be used to set the state of the addon on/off.
@@ -23,10 +12,16 @@ const setEnabled = (newState) => {
 
     // toggle the icon and title
     const newTitle = (newState) ? "AutoRate:ON" : "AutoRate:OFF";
-    const iconToUse = (newState) ? iconsOn : iconsOff;
 
     browser.browserAction.setTitle({title: newTitle});
-    browser.browserAction.setIcon({path: iconToUse});
+
+    // set the badge
+    const badgeText = (newState) ? "on" : "off";
+
+    browser.browserAction.setBadgeBackgroundColor({color: "#555"});
+    browser.browserAction.setBadgeTextColor({color: "#fef"});
+    browser.browserAction.setBadgeText({text: badgeText});
+
 }
 
 const setupStorage = () => {

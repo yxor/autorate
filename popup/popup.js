@@ -6,16 +6,6 @@ const powerButton = document.getElementById("power-button");
 const defaultAction = document.getElementById("select-global");
 const channelAction = document.getElementById("select-creator");
 
-const iconsOn = {
-  256: "../assets/on256.png",
-  128: "../assets/on128.png"
-}
-
-const iconsOff = {
-  256: "../assets/off256.png",
-  128: "../assets/off128.png"
-}
-
 const powerButtonIcon = {
   on: "../assets/popup/on.png",
   off: "../assets/popup/off.png"
@@ -36,11 +26,16 @@ const setEnabled = (newState) => {
 
   // toggle the icon and title 
   const newTitle = (newState) ? "AutoRate:ON" : "AutoRate:OFF";
-  const iconToUse = (newState) ? iconsOn : iconsOff;
   powerButton.src = (newState) ? powerButtonIcon.on : powerButtonIcon.off;
 
   browser.browserAction.setTitle({title: newTitle});
-  browser.browserAction.setIcon({path: iconToUse});
+
+  // set the badge
+  const badgeText = (newState) ? "on" : "off";
+
+  browser.browserAction.setBadgeBackgroundColor({color: "#555"});
+  browser.browserAction.setBadgeTextColor({color: "#fef"});
+  browser.browserAction.setBadgeText({text: badgeText});
   
 }
 
@@ -154,7 +149,8 @@ const mainEntry = async () => {
   defaultAction.value = state.defaultAction;
   channelAction.value = (foundChannel) ? foundChannel.ratingAction : ratingActions.default;
   
-  
+  // after everything is ready, clear the content blocker
+  document.getElementById("content-blocker").remove();
 }
 
 mainEntry();
