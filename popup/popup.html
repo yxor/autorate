@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" style="width: 150px;">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,54 +7,52 @@
     <link rel="stylesheet" href="popup.css">   
     <title>AutoRate</title>
 </head>
-<body style="width: 150px;">
+<body>
+    <div class="container">
 
-    <div class="ui one column stackable center aligned page grid">
-    <div class="column twelve wide">
-    
-    <div>
-       <img id="power-button">
-    </div>
-    
-    <div>
+
+        <div class="power-button-container">
+        <img id="power-button">
+        </div>
+        
+        <div class="seperator"></div>
+
+        <div class="slider-container">
+            <input type="range" id="video-slider" name="video-slider" value="0"  min="0" max="100"> 
         <input type="range" id="video-slider" name="video-slider" value="0"  min="0" max="100"> 
-    </div>
-    </div>
+            <input type="range" id="video-slider" name="video-slider" value="0"  min="0" max="100"> 
+        </div>
+        
+        <div class="text-container">
+        <span id="percentage-display"></span>
+        </div>
+    
+        
+        <div class="seperator"></div>
 
-    <div class="column twelve wide left aligned">
-    
-    <div class="ui text container">
-       <span id="percentage-display"></span>
-    </div>
-   
-    <h6 class="ui horizontal divider header">
-    </h6>
-    
-    <div class="ui text container">
-        Always
-        <select name="select-global" class="ui dropdown" id="select-global">
-            <option value="notRate">Not rate</option>
-            <option value="like">Like</option>
-            <option value="dislike">Dislike</option>
-        </select>
-        videos by default.
-    </div>
+        <div class="select-container">
+            Always
+            <select name="select-global" id="select-global">
+                <option value="notRate">Not rate</option>
+                <option value="like">Like</option>
+                <option value="dislike">Dislike</option>
+            </select>
+            videos by default.
+        </div>
+        
 
-    <h4 class="ui horizontal divider header">
-    </h4>
-    
-    <div id="channel-specific-rating" class="ui text container">
-        Always
-        <select name="select-creator" class="ui dropdown" id="select-creator">
-            <option value="default">Default</option>
-            <option value="like">Like</option>
-            <option value="dislike">Dislike</option>
-            <option value="notRate">Not rate</option>
-        </select>
-        videos from <span id="creator"></span>.
+        <div id="channel-specific-rating" class="select-container">
+            Always
+            <select name="select-creator" id="select-creator">
+                <option value="default">Default</option>
+                <option value="like">Like</option>
+                <option value="dislike">Dislike</option>
+                <option value="notRate">Not rate</option>
+            </select>
+            videos from <span id="creator"></span>.
+        </div>
+
     </div>
-    
-</div></div>
     <script src="popup.js"></script>
 </body>
 </html>
