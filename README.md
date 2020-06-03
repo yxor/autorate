@@ -4,12 +4,12 @@
 
 ## What is this
 
-AutoRate is a browser extension that helps you automate rating the youtube videos you watch.
+AutoRate is a browser extension that helps automate rating the youtube videos you watch.
 This extension is made for people who are too lazy or forgetful to rate videos, never bother liking, disliking a video again.
 
 ## Features
 
-This extension helps you do these things:
+This extension helps with these things:
 
 - Select a default behaviour to rate all watched videos.
 

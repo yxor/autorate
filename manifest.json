@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "AutoRate - Automate rating YouTube videos",
-  "description": "AutoRate helps you automate rating the youtube videos you watch.",
+  "description": "AutoRate automates rating the youtube videos you watch.",
   "version": "0.9",
   "permissions": [
     "activeTab",
