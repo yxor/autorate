@@ -1,14 +1,14 @@
 
 // Addon icons.
 const iconsOn = {
-    32: "../assets/on32.png",
+    256: "../assets/on256.png",
     128: "../assets/on128.png"
-}
-
-const iconsOff = {
-    32: "../assets/off32.png",
+  }
+  
+  const iconsOff = {
+    256: "../assets/off256.png",
     128: "../assets/off128.png"
-}
+  }
 
 
 /**

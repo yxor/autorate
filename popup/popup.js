@@ -7,18 +7,18 @@ const defaultAction = document.getElementById("select-global");
 const channelAction = document.getElementById("select-creator");
 
 const iconsOn = {
-  32: "../assets/on32.png",
+  256: "../assets/on256.png",
   128: "../assets/on128.png"
 }
 
 const iconsOff = {
-  32: "../assets/off32.png",
+  256: "../assets/off256.png",
   128: "../assets/off128.png"
 }
 
 const powerButtonIcon = {
-  on: "../assets/popup/on128.png",
-  off: "../assets/popup/off128.png"
+  on: "../assets/popup/on.png",
+  off: "../assets/popup/off.png"
 }
 
 const ratingActions = {
