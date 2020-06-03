@@ -54,16 +54,30 @@ powerButton.onclick = () => {
  * 
  * @param {number} percentage A number between 0 and 100.
  * 
- * @returns {string} A description of the percentage. 
+ * @returns {HTMLElement} A description of the percentage. 
  */
 const getRatingString = (percentage) => {
   if(percentage == 0)
-    return `Rate the video when it starts.`;
+    return document.createTextNode(`Rate the video when it starts.`);
   
   if(percentage == 100)
-    return `Rate the video after watching it fully.`;
-  
-  return `Rate the video after watching <span class="bold-text">${percentage}%</span> of it.`;
+    return document.createTextNode(`Rate the video after watching it fully.`);
+
+  const percentageNode = document.createTextNode(percentage.toString()+"%");
+
+  const spanNode = document.createElement("span");
+  spanNode.className = "bold-text";
+  spanNode.appendChild(percentageNode);
+
+  const firstNode = document.createTextNode("Rate the video after watching ");
+  const secondNode = document.createTextNode(" of it.");
+
+  const toReturn = document.createElement("span");
+  toReturn.appendChild(firstNode);
+  toReturn.appendChild(spanNode);
+  toReturn.appendChild(secondNode);
+
+  return toReturn;
 }
 
 const fitSelectSize = (selectElement) => {
@@ -76,7 +90,8 @@ const fitSelectSize = (selectElement) => {
  * When the slider is released, its value is saved in the storage.
  */
 slider.onchange = () => {
-  sliderDisplay.innerHTML = getRatingString(slider.value);
+  sliderDisplay.textContent = "";
+  sliderDisplay.appendChild(getRatingString(slider.value));
   browser.storage.local.set({rateAfter: slider.value});
 }
 
@@ -84,7 +99,8 @@ slider.onchange = () => {
  * When the slider is moved, its value is only changed visually.
  */
 slider.oninput = () => {
-  sliderDisplay.innerHTML = getRatingString(slider.value);
+  sliderDisplay.textContent = "";
+  sliderDisplay.appendChild(getRatingString(slider.value));
 }
 
 /**
@@ -158,9 +174,10 @@ const mainEntry = async () => {
   }) : null;
 
   if(currentChannel)
-    document.getElementById("creator").innerHTML = currentChannel.channelName;
+    document.getElementById("creator").textContent = currentChannel.channelName;
 
-  sliderDisplay.innerHTML = getRatingString(slider.value);
+  sliderDisplay.textContent = "";
+  sliderDisplay.appendChild(getRatingString(slider.value));
   defaultAction.value = state.defaultAction;
   channelAction.value = (foundChannel) ? foundChannel.ratingAction : ratingActions.default;
   fitSelectSize(defaultAction);
