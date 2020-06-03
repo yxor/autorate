@@ -42,6 +42,42 @@ body, #content-blocker {
     padding-bottom: 0;
 }
 
+select {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    color: inherit;
+    font: inherit;
+    font-size: inherit;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    border-radius: 0;
+    border: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width:fit-content;
+}
+
+
+option {
+    color: black;
+}
+
+select:focus {
+    outline: none;
+}
+
+.select-icon {
+    width: 15px;
+    height: 15px;
+    padding-right: 2px;
+    pointer-events: none;
+}
+
 #power-button:hover {
     cursor: pointer; 
 }
@@ -79,6 +115,8 @@ body, #content-blocker {
 
 }
 
+
+/* The range slider */
 
 input[type='range'] {
     -webkit-appearance: none;

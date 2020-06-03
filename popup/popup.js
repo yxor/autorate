@@ -49,14 +49,26 @@ powerButton.onclick = () => {
 }
 
 
-const getRatingString = (rating) => {
-  if(rating == 0)
+/**
+ * Utility function, returns a string that describes a percentage.
+ * 
+ * @param {number} percentage A number between 0 and 100.
+ * 
+ * @returns {string} A description of the percentage. 
+ */
+const getRatingString = (percentage) => {
+  if(percentage == 0)
     return `Rate the video when it starts.`;
   
-  if(rating == 100)
+  if(percentage == 100)
     return `Rate the video after watching it fully.`;
   
-  return `Rate the video after watching <span class="bold-text">${rating}%</span> of it.`;
+  return `Rate the video after watching <span class="bold-text">${percentage}%</span> of it.`;
+}
+
+const fitSelectSize = (selectElement) => {
+  let selectedText = selectElement.options[selectElement.selectedIndex].text;
+  selectElement.style.width = (3 + selectedText.length * 8) + "px";
 }
 
 
@@ -79,9 +91,10 @@ slider.oninput = () => {
  * When the default action is changed, its value is saved to the storage. 
  */
 defaultAction.onchange = () => {
+  fitSelectSize(defaultAction);
+
   const choice = defaultAction.value;
   browser.storage.local.set({defaultAction: choice});
-
 }
 
 /**
@@ -89,6 +102,8 @@ defaultAction.onchange = () => {
  * the array of channels in storage.
  */
 channelAction.onchange = async() => {
+  fitSelectSize(channelAction);
+
   const choice = channelAction.value;
   const state = await browser.storage.local.get("channels");
 
@@ -148,7 +163,9 @@ const mainEntry = async () => {
   sliderDisplay.innerHTML = getRatingString(slider.value);
   defaultAction.value = state.defaultAction;
   channelAction.value = (foundChannel) ? foundChannel.ratingAction : ratingActions.default;
-  
+  fitSelectSize(defaultAction);
+  fitSelectSize(channelAction);
+
   // after everything is ready, clear the content blocker
   document.getElementById("content-blocker").remove();
 }

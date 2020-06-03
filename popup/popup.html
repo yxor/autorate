@@ -29,25 +29,28 @@
         <div class="seperator"></div>
 
         <div class="select-container">
-            Always
             <select name="select-global" id="select-global">
-                <option value="notRate">Not rate</option>
+                <option value="notRate">Don't rate</option>
                 <option value="like">Like</option>
                 <option value="dislike">Dislike</option>
             </select>
+            <object type="image/svg+xml" data="../assets/arrow.svg" class="select-icon">
+            </object>
             videos by default.
         </div>
         
 
         <div id="channel-specific-rating" class="select-container">
-            Always
+            Use
             <select name="select-creator" id="select-creator">
                 <option value="default">Default</option>
                 <option value="like">Like</option>
                 <option value="dislike">Dislike</option>
-                <option value="notRate">Not rate</option>
+                <option value="notRate">Don't rate</option>
             </select>
-            videos from <span id="creator" class="bold-text"></span>.
+            <object type="image/svg+xml" data="../assets/arrow.svg" class="select-icon">
+            </object>
+            as a rating for videos from <span id="creator" class="bold-text"></span>.
         </div>
 
     </div>
