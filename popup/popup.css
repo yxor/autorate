@@ -24,13 +24,11 @@ body {
 
 /*background color*/
 body, #content-blocker {
-    /*background color*/
-    background: rgb(55,0,0);
-    background: -moz-linear-gradient(0deg, rgba(55,0,0,1) 0%, rgba(102,1,1,1) 60%, rgba(142,0,0,1) 100%);
-    background: -webkit-linear-gradient(0deg, rgba(55,0,0,1) 0%, rgba(102,1,1,1) 60%, rgba(142,0,0,1) 100%);
-    background: linear-gradient(0deg, rgba(55,0,0,1) 0%, rgba(102,1,1,1) 60%, rgba(142,0,0,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#370000",endColorstr="#8e0000",GradientType=1); 
-    
+    background: rgb(17,0,0);
+    background: -moz-linear-gradient(0deg, rgba(17,0,0,1) 0%, rgba(46,0,0,1) 40%, rgba(62,0,0,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(17,0,0,1) 0%, rgba(46,0,0,1) 40%, rgba(62,0,0,1) 100%);
+    background: linear-gradient(0deg, rgba(17,0,0,1) 0%, rgba(46,0,0,1) 40%, rgba(62,0,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#110000",endColorstr="#3e0000",GradientType=1); 
 }
 
 #power-button {
